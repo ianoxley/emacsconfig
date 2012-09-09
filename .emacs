@@ -9,7 +9,7 @@
  '(global-linum-mode t)
  '(inhibit-startup-screen t)
  '(tab-width 4))
-(set-face-attribute 'default nil :font "Inconsolata-12")
+(set-face-attribute 'default nil :font "Monaco-14")
 (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -50,3 +50,6 @@
 ;; Steve yegge effective emacs suggestions
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
+
+;; Fix the hash key on os x
+(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
