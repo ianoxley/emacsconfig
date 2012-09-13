@@ -46,10 +46,15 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
+(setq org-agenda-files (list "~/Dropbox/todo/todo.org"
+							 "~/Dropbox/todo/home.org"
+							 "~/Dropbox/todo/work.org"))
 
 ;; Steve yegge effective emacs suggestions
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 
 ;; Fix the hash key on os x
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
