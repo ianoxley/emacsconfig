@@ -1,0 +1,3 @@
+[submodule ".emacs.d/lisp/markdown-mode"]
+	path = .emacs.d/lisp/markdown-mode
+	url = git://jblevins.org/git/markdown-mode.git
