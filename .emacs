@@ -9,7 +9,7 @@
  '(global-linum-mode t)
  '(inhibit-startup-screen t)
  '(tab-width 4))
-(set-face-attribute 'default nil :font "Inconsolata-12")
+(set-face-attribute 'default nil :font "Ubuntu Mono-12")
 (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
