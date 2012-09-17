@@ -58,3 +58,9 @@
 
 ;; Fix the hash key on os x
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+
+;; Add Marmalade package repository
+(setq package-archives
+	  '(("gnu" . "http://elpa.gnu.org/packages/")
+		("marmalade" . "http://marmalade-repo.org/packages/")))
+
