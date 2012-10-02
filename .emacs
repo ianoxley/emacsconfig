@@ -49,6 +49,8 @@
 (setq org-agenda-files (list "~/Dropbox/todo/todo.org"
 							 "~/Dropbox/todo/home.org"
 							 "~/Dropbox/todo/work.org"))
+(setq org-log-done 'time)
+(setq org-log-done 'note)
 
 ;; Steve yegge effective emacs suggestions
 (global-set-key "\C-x\C-m" 'execute-extended-command)
