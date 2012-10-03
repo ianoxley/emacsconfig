@@ -51,6 +51,8 @@
 							 "~/Dropbox/todo/work.org"))
 (setq org-log-done 'time)
 (setq org-log-done 'note)
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
 
 ;; Steve yegge effective emacs suggestions
 (global-set-key "\C-x\C-m" 'execute-extended-command)
