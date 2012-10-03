@@ -46,9 +46,9 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
-(setq org-agenda-files (list "~/Dropbox/todo/todo.org"
-							 "~/Dropbox/todo/home.org"
-							 "~/Dropbox/todo/work.org"))
+(setq org-agenda-files (list "/Users/ian.oxley/Dropbox/todo/todo.org"
+							 "/Users/ian.oxley/Dropbox/todo/home.org"
+							 "/Users/ian.oxley/Dropbox/todo/work.org"))
 (setq org-log-done 'time)
 (setq org-log-done 'note)
 (setq org-clock-persist 'history)
