@@ -9,7 +9,6 @@
  '(global-linum-mode t)
  '(inhibit-startup-screen t)
  '(tab-width 4))
- '(org-directory "C:/Users/ian.oxley/Dropbox/todo")
 (set-face-attribute 'default nil :font "Ubuntu Mono-12")
 (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
 (custom-set-faces
@@ -60,9 +59,9 @@
 
 ;; org mode capture templates
 (setq org-capture-templates
-	  '(("t" "Todo" entry (file+headline (concat org-directory "/todo.org") "Tasks")
+	  '(("t" "Todo" entry (file+headline "/Users/ian.oxley/Dropbox/todo/todo.org" "Tasks")
 		 "* TODO %?\n %i\n %a")
-		("j" "Journal" entry (file+datetree (concat org-directory "/journal.org"))
+		("j" "Journal" entry (file+datetree "/Users/ian.oxley/Dropbox/todo/journal.org")
 		 "* %?\nEntered on %U\n %i\n %a")))
 
 ;; Steve yegge effective emacs suggestions
