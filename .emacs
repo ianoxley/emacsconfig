@@ -60,7 +60,7 @@
 
 ;; org mode capture templates
 (setq org-capture-templates
-	  '(("t" "Todo" entry (file+headline (concat org-directory "/todo.org"))
+	  '(("t" "Todo" entry (file+headline (concat org-directory "/todo.org") "Tasks")
 		 "* TODO %?\n %i\n %a")
 		("j" "Journal" entry (file+datetree (concat org-directory "/journal.org"))
 		 "* %?\nEntered on %U\n %i\n %a")))
