@@ -9,6 +9,7 @@
  '(global-linum-mode t)
  '(inhibit-startup-screen t)
  '(tab-width 4))
+ '(org-directory "C:/Users/ian.oxley/Dropbox/todo")
 (set-face-attribute 'default nil :font "Ubuntu Mono-12")
 (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
 (custom-set-faces
@@ -53,6 +54,16 @@
 (setq org-log-done 'note)
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
+
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(define-key global-map "\C-cc" 'org-capture)
+
+;; org mode capture templates
+(setq org-capture-templates
+	  '(("t" "Todo" entry (file+headline (concat org-directory "/todo.org"))
+		 "* TODO %?\n %i\n %a")
+		("j" "Journal" entry (file+datetree (concat org-directory "/journal.org"))
+		 "* %?\nEntered on %U\n %i\n %a")))
 
 ;; Steve yegge effective emacs suggestions
 (global-set-key "\C-x\C-m" 'execute-extended-command)
