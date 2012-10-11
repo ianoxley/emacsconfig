@@ -64,6 +64,9 @@
 		("j" "Journal" entry (file+datetree "/Users/ian.oxley/Dropbox/todo/journal.org")
 		 "* %?\nEntered on %U\n %i\n %a")))
 
+;; org mode recapture settings
+(setq org-refile-targets (org-agenda-files))
+
 ;; Steve yegge effective emacs suggestions
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
