@@ -65,7 +65,8 @@
 		 "* %?\nEntered on %U\n %i\n %a")))
 
 ;; org mode recapture settings
-(setq org-refile-targets (org-agenda-files))
+(setq org-refile-targets (quote ((nil :maxlevel . 9)
+								 (org-agenda-files :maxlevel . 9))))
 
 ;; Steve yegge effective emacs suggestions
 (global-set-key "\C-x\C-m" 'execute-extended-command)
