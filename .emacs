@@ -10,7 +10,7 @@
  '(inhibit-startup-screen t)
  '(ns-command-modifier (quote meta))
  '(tab-width 4))
-(set-face-attribute 'default nil :font "Monaco-14")
+(set-face-attribute 'default nil :font "Ubuntu Mono-12")
 (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
