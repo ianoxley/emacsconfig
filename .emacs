@@ -8,6 +8,7 @@
  '(custom-enabled-themes (quote (wheatgrass)))
  '(global-linum-mode t)
  '(inhibit-startup-screen t)
+ '(ns-command-modifier (quote meta))
  '(tab-width 4))
 (set-face-attribute 'default nil :font "Monaco-14")
 (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
