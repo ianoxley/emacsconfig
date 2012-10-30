@@ -33,6 +33,11 @@
 (require 'evil)
 (evil-mode 1)
 
+;; Lets us use 'jk' to escape from insert mode
+(require 'key-chord)
+(key-chord-mode 1)
+(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+
 ;; Markdown mode
 (autoload 'markdown-mode "markdown-mode.el"
   "Major mode for editing Markdown files" t)
