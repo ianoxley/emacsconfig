@@ -1,3 +1,6 @@
 [submodule ".emacs.d/lisp/markdown-mode"]
 	path = .emacs.d/lisp/markdown-mode
 	url = git://jblevins.org/git/markdown-mode.git
+[submodule ".emacs.d/evil"]
+	path = .emacs.d/evil
+	url = git://gitorious.org/evil/evil.git
