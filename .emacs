@@ -10,7 +10,6 @@
  '(inhibit-startup-screen t)
  '(tab-width 4))
 (set-face-attribute 'default nil :font "Ubuntu Mono-12")
-(load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
