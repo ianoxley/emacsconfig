@@ -8,6 +8,7 @@
  '(custom-enabled-themes (quote (wheatgrass)))
  '(global-linum-mode t)
  '(inhibit-startup-screen t)
+ '(ns-command-modifier (quote meta))
  '(tab-width 4))
 (set-face-attribute 'default nil :font "Ubuntu Mono-12")
 (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
@@ -60,3 +61,30 @@
 
 ;; Fix the hash key on os x
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+
+;; Add Marmalade package repository
+(setq package-archives
+	  '(("gnu" . "http://elpa.gnu.org/packages/")
+		("marmalade" . "http://marmalade-repo.org/packages/")))
+
+;; Custom functions to replicate Vim's C-o and C-O
+;; commands - from http://bastibe.de/my-emacs-customizations.html
+(defun vi-open-line-above ()
+  "Insert a newline above the current line and put point at beginning."
+  (interactive)
+  (unless (bolp)
+    (beginning-of-line))
+  (newline)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+(defun vi-open-line-below ()
+  "Insert a newline below the current line and put point at beginning."
+  (interactive)
+  (unless (eolp)
+    (end-of-line))
+  (newline-and-indent))
+
+(global-set-key (kbd "C-o") 'vi-open-line-below)
+(global-set-key (kbd "M-o") 'vi-open-line-above)
+
