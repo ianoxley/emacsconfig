@@ -90,6 +90,8 @@
 
 
 ;; file types
+(add-to-list 'load-path
+			 "~/.emacs.d/elpa/yasnippet-0.6.1")
 (setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
 
 ;; ido mode
