@@ -53,6 +53,7 @@
 (setq org-log-done 'note)
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
+'(org-startup-truncated nil)
 
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
@@ -97,3 +98,9 @@
 
 (global-set-key (kbd "C-o") 'vi-open-line-below)
 (global-set-key (kbd "M-o") 'vi-open-line-above)
+
+;; yasnippet
+(add-to-list 'load-path
+			 "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
