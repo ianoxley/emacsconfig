@@ -7,6 +7,7 @@
  '(completion-on-separator-character t)
  '(custom-enabled-themes (quote (wheatgrass)))
  '(global-linum-mode t)
+ '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
  '(ns-command-modifier (quote meta))
  '(tab-width 4))
@@ -90,3 +91,10 @@
 
 ;; file types
 (setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
+
+;; ido mode
+(require 'ido)
+(ido-mode t)
+
+;; org mode hooks
+(add-hook 'org-capture-mode-hook #'visual-line-mode)
