@@ -8,6 +8,7 @@
  '(completion-on-separator-character t)
  '(custom-enabled-themes (quote (wheatgrass)))
  '(global-linum-mode t)
+ '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
  '(tab-width 4))
 (set-face-attribute 'default nil :font "Ubuntu Mono-12")
@@ -104,3 +105,10 @@
 			 "~/.emacs.d/elpa/yasnippet-0.8.0")
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;; ido mode
+(require 'ido)
+(ido-mode t)
+
+;; org mode hooks
+(add-hook 'org-capture-mode-hook #'visual-line-mode)
