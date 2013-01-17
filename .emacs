@@ -87,3 +87,6 @@
 (global-set-key (kbd "C-o") 'vi-open-line-below)
 (global-set-key (kbd "M-o") 'vi-open-line-above)
 
+
+;; file types
+(setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
