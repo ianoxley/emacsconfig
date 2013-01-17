@@ -112,3 +112,6 @@
 
 ;; org mode hooks
 (add-hook 'org-capture-mode-hook #'visual-line-mode)
+
+;; file types
+(setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
