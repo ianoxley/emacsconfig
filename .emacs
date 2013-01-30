@@ -51,7 +51,6 @@
 							 "/Users/ian.oxley/Dropbox/todo/home.org"
 							 "/Users/ian.oxley/Dropbox/todo/work.org"))
 (setq org-log-done 'time)
-(setq org-log-done 'note)
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
 '(org-startup-truncated nil)
