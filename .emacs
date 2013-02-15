@@ -109,7 +109,9 @@
 (add-to-list 'load-path
 			 "~/.emacs.d/elpa/yasnippet-0.6.1")
 (require 'yasnippet)
-(yas-global-mode 1)
+
+(yas--initialize)
+(yas/load-directory "~/.emacs.d/elpa/yasnippet-0.6.1/snippets")
 
 (setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
 
