@@ -7,11 +7,11 @@
  '(completion-on-separator-character t)
  '(custom-enabled-themes (quote (wheatgrass)))
  '(global-linum-mode t)
+ '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
  '(ns-command-modifier (quote meta))
  '(tab-width 4))
-(set-face-attribute 'default nil :font "Ubuntu Mono-12")
-(load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
+(set-face-attribute 'default nil :font "Ubuntu Mono-14")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -88,3 +88,15 @@
 (global-set-key (kbd "C-o") 'vi-open-line-below)
 (global-set-key (kbd "M-o") 'vi-open-line-above)
 
+
+;; file types
+(add-to-list 'load-path
+			 "~/.emacs.d/elpa/yasnippet-0.6.1")
+(setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
+
+;; ido mode
+(require 'ido)
+(ido-mode t)
+
+;; org mode hooks
+(add-hook 'org-capture-mode-hook #'visual-line-mode)
