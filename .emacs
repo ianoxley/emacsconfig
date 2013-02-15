@@ -11,7 +11,7 @@
  '(inhibit-startup-screen t)
  '(ns-command-modifier (quote meta))
  '(tab-width 4))
-(set-face-attribute 'default nil :font "Ubuntu Mono-14")
+(set-face-attribute 'default nil :font "Ubuntu Mono-12")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -51,7 +51,23 @@
 							 "~/Dropbox/todo/home.org"
 							 "~/Dropbox/todo/work.org"))
 (setq org-log-done 'time)
-(setq org-log-done 'note)
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
+'(org-startup-truncated nil)
+
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(define-key global-map "\C-cc" 'org-capture)
+
+;; org mode capture templates
+(setq org-capture-templates
+	  '(("t" "Todo" entry (file+headline "/Users/ian.oxley/Dropbox/todo/todo.org" "Tasks")
+		 "* TODO %?\n %i\n %a")
+		("j" "Journal" entry (file+datetree "/Users/ian.oxley/Dropbox/todo/journal.org")
+		 "* %?\nEntered on %U\n %i\n %a")))
+
+;; org mode recapture settings
+(setq org-refile-targets (quote ((nil :maxlevel . 9)
+								 (org-agenda-files :maxlevel . 9))))
 
 ;; Steve yegge effective emacs suggestions
 (global-set-key "\C-x\C-m" 'execute-extended-command)
@@ -92,11 +108,24 @@
 ;; file types
 (add-to-list 'load-path
 			 "~/.emacs.d/elpa/yasnippet-0.6.1")
+(require 'yasnippet)
+(yas-global-mode 1)
+
 (setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
 
 ;; ido mode
 (require 'ido)
 (ido-mode t)
+(add-hook 'ido-setup-hook
+		  (lambda()
+			;; Go straight home
+			(define-key ido-file-completion-map
+			  (kbd "~")
+			  (lambda()
+				(interactive)
+				(if (looking-back "/")
+					(insert "~/")
+				  (call-interactively 'self-insert-command))))))
 
 ;; org mode hooks
 (add-hook 'org-capture-mode-hook #'visual-line-mode)
