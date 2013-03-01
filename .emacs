@@ -11,7 +11,7 @@
  '(inhibit-startup-screen t)
  '(ns-command-modifier (quote meta))
  '(tab-width 4))
-(set-face-attribute 'default nil :font "Ubuntu Mono-12")
+(set-face-attribute 'default nil :font "Ubuntu Mono-14")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -107,11 +107,11 @@
 
 ;; file types
 (add-to-list 'load-path
-			 "~/.emacs.d/elpa/yasnippet-0.6.1")
+			 "~/.emacs.d/elpa/yasnippet-0.8.0")
 (require 'yasnippet)
 
 (yas--initialize)
-(yas/load-directory "~/.emacs.d/elpa/yasnippet-0.6.1/snippets")
+(yas/load-directory "~/.emacs.d/elpa/yasnippet-0.8.0/snippets")
 
 (setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
 
@@ -131,3 +131,13 @@
 
 ;; org mode hooks
 (add-hook 'org-capture-mode-hook #'visual-line-mode)
+
+;; Install missing packages
+(package-initialize)
+(mapc
+ (lambda(package)
+   (or (package-installed-p package)
+	   (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+		   (package-install package))))
+ ('evil yasnippet key-chord)
+	   
