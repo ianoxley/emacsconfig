@@ -107,13 +107,17 @@
 
 ;; file types
 (add-to-list 'load-path
-			 "~/.emacs.d/elpa/yasnippet-0.6.1")
+			 "~/.emacs.d/elpa/yasnippet-0.8.0")
 (require 'yasnippet)
 
 (yas--initialize)
-(yas/load-directory "~/.emacs.d/elpa/yasnippet-0.6.1/snippets")
+(yas/load-directory "~/.emacs.d/elpa/yasnippet-0.8.0/snippets")
 
 (setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
+
+;; js2 mode
+(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; ido mode
 (require 'ido)
@@ -131,3 +135,12 @@
 
 ;; org mode hooks
 (add-hook 'org-capture-mode-hook #'visual-line-mode)
+
+;; Evil mode
+(require 'evil)
+(evil-mode 1)
+
+;; 'jk' exits insert mode
+(require 'key-chord)
+(key-chord-mode 1)
+(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
