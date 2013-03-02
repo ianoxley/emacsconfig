@@ -11,7 +11,7 @@
  '(inhibit-startup-screen t)
  '(ns-command-modifier (quote meta))
  '(tab-width 4))
-(set-face-attribute 'default nil :font "Ubuntu Mono-14")
+(set-face-attribute 'default nil :font "Ubuntu Mono-12")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -104,6 +104,14 @@
 (global-set-key (kbd "C-o") 'vi-open-line-below)
 (global-set-key (kbd "M-o") 'vi-open-line-above)
 
+;; Install missing packages
+(package-initialize)
+(mapc
+ (lambda (package)
+   (or (package-installed-p package)
+           (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+                   (package-install package))))
+ '(evil yasnippet key-chord js2-mode auto-complete markdown-mode))
 
 ;; file types
 (add-to-list 'load-path
@@ -114,6 +122,10 @@
 (yas/load-directory "~/.emacs.d/elpa/yasnippet-0.8.0/snippets")
 
 (setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
+
+;; js2 mode
+(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; ido mode
 (require 'ido)
@@ -132,12 +144,12 @@
 ;; org mode hooks
 (add-hook 'org-capture-mode-hook #'visual-line-mode)
 
-;; Install missing packages
-(package-initialize)
-(mapc
- (lambda(package)
-   (or (package-installed-p package)
-	   (if (y-or-n-p (format "Package %s is missing. Install it? " package))
-		   (package-install package))))
- ('evil yasnippet key-chord)
-	   
+;; Evil mode
+(require 'evil)
+(evil-mode 1)
+
+;; 'jk' exits insert mode
+(require 'key-chord)
+(key-chord-mode 1)
+(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+
