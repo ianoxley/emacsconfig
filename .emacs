@@ -104,6 +104,14 @@
 (global-set-key (kbd "C-o") 'vi-open-line-below)
 (global-set-key (kbd "M-o") 'vi-open-line-above)
 
+;; Install missing packages
+(package-initialize)
+(mapc
+ (lambda (package)
+   (or (package-installed-p package)
+           (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+                   (package-install package))))
+ '(evil yasnippet key-chord js2-mode auto-complete markdown-mode))
 
 ;; file types
 (add-to-list 'load-path
@@ -144,3 +152,4 @@
 (require 'key-chord)
 (key-chord-mode 1)
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+
