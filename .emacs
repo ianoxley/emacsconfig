@@ -19,9 +19,6 @@
  ;; If there is more than one, they won't work right.
  )
 (add-to-list 'load-path "~/.emacs.d/")
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
-(require 'auto-complete-config)
-(ac-config-default)
 
 ;; Add files and sub-directories in ~/.emacs.d/lisp/ to the load-path
 (let ((default-directory (concat user-emacs-directory
@@ -153,3 +150,8 @@
 (key-chord-mode 1)
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 
+;; auto-complete mode
+(require 'auto-complete)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
+(require 'auto-complete-config)
+(ac-config-default)
