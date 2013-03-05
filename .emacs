@@ -19,8 +19,8 @@
  ;; If there is more than one, they won't work right.
  )
 (add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
 (ac-config-default)
 
 ;; Add files and sub-directories in ~/.emacs.d/lisp/ to the load-path
