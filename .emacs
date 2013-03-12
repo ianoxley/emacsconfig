@@ -57,9 +57,9 @@
 
 ;; org mode capture templates
 (setq org-capture-templates
-	  '(("t" "Todo" entry (file+headline "/Users/ian.oxley/Dropbox/todo/todo.org" "Tasks")
+	  '(("t" "Todo" entry (file+headline "~/Dropbox/todo/todo.org" "Tasks")
 		 "* TODO %?\n %i\n %a")
-		("j" "Journal" entry (file+datetree "/Users/ian.oxley/Dropbox/todo/journal.org")
+		("j" "Journal" entry (file+datetree "~/Dropbox/todo/journal.org")
 		 "* %?\nEntered on %U\n %i\n %a")))
 
 ;; org mode recapture settings
