@@ -108,7 +108,7 @@
    (or (package-installed-p package)
            (if (y-or-n-p (format "Package %s is missing. Install it? " package))
                    (package-install package))))
- '(evil yasnippet key-chord js2-mode auto-complete markdown-mode))
+ '(evil yasnippet key-chord js2-mode auto-complete markdown-mode expand-region coffee-mode))
 
 ;; file types
 (add-to-list 'load-path
@@ -121,8 +121,12 @@
 (setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
 
 ;; js2 mode
-(autoload 'js2-mode "js2" nil t)
+(autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+(setq js-indent-level 2)
+(setq js2-indent-level 2)
+(setq js2-basic-offset 2)
 
 ;; ido mode
 (require 'ido)
@@ -142,13 +146,13 @@
 (add-hook 'org-capture-mode-hook #'visual-line-mode)
 
 ;; Evil mode
-(require 'evil)
-(evil-mode 1)
+;; (require 'evil)
+;; (evil-mode 1)
 
 ;; 'jk' exits insert mode
-(require 'key-chord)
-(key-chord-mode 1)
-(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+;; (require 'key-chord)
+;; (key-chord-mode 1)
+;; (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 
 ;; auto-complete mode
 (require 'auto-complete)
