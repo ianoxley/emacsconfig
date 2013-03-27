@@ -155,3 +155,7 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
 (require 'auto-complete-config)
 (ac-config-default)
+
+;; expand region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
