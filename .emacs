@@ -78,7 +78,8 @@
 ;; Add Marmalade package repository
 (setq package-archives
 	  '(("gnu" . "http://elpa.gnu.org/packages/")
-		("marmalade" . "http://marmalade-repo.org/packages/")))
+		("marmalade" . "http://marmalade-repo.org/packages/")
+		("melpa" . "http://melpa.milkbox.net/packages/")))
 
 ;; Custom functions to replicate Vim's C-o and C-O
 ;; commands - from http://bastibe.de/my-emacs-customizations.html
