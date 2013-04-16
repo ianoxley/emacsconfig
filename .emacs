@@ -147,13 +147,13 @@
 (add-hook 'org-capture-mode-hook #'visual-line-mode)
 
 ;; Evil mode
-;; (require 'evil)
-;; (evil-mode 1)
+(require 'evil)
+(evil-mode 1)
 
 ;; 'jk' exits insert mode
-;; (require 'key-chord)
-;; (key-chord-mode 1)
-;; (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+(require 'key-chord)
+(key-chord-mode 1)
+(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 
 ;; auto-complete mode
 (require 'auto-complete)
@@ -164,3 +164,7 @@
 ;; expand region
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+;; mmm-mode
+(require 'mmm-mode)
+
