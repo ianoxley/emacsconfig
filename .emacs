@@ -9,9 +9,8 @@
  '(global-linum-mode t)
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
- '(ns-command-modifier (quote meta))
- '(tab-width 4))
-(set-face-attribute 'default nil :font "Ubuntu Mono-12")
+ '(ns-command-modifier (quote meta)))
+(set-face-attribute 'default nil :font "Ubuntu Mono-14")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -19,6 +18,11 @@
  ;; If there is more than one, they won't work right.
  )
 (add-to-list 'load-path "~/.emacs.d/")
+
+;; Spaces for tabs
+(setq c-basic-indent 2)
+(setq tab-width 2)
+(setq indent-tabs-mode nil)
 
 ;; Add files and sub-directories in ~/.emacs.d/lisp/ to the load-path
 (let ((default-directory (concat user-emacs-directory
@@ -123,7 +127,9 @@
 
 ;; js2 mode
 (autoload 'js2-mode "js2-mode" nil t)
+(setq js2-highlight-level 3)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 
 (setq js-indent-level 2)
 (setq js2-indent-level 2)
@@ -166,5 +172,5 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; mmm-mode
-(require 'mmm-mode)
+;; (require 'mmm-mode)
 
