@@ -174,3 +174,10 @@
 ;; mmm-mode
 ;; (require 'mmm-mode)
 
+(defun calepin-date ()
+  "inserts a date stamp in the format required by Calepin"
+    (interactive)
+    (insert (format-time-string "%Y-%m-%d"))
+    (insert "\n"))
+
+(global-set-key "\C-cd" 'calepin-date)
