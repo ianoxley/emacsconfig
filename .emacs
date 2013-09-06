@@ -113,11 +113,9 @@
 
 ;; file types
 (add-to-list 'load-path
-			 "~/.emacs.d/elpa/yasnippet-0.8.0")
+			 "~/.emacs.d/elpa/yasnippet-20130831.2348")
 (require 'yasnippet)
-
-(yas--initialize)
-(yas/load-directory "~/.emacs.d/elpa/yasnippet-0.8.0/snippets")
+(yas-global-mode 1)
 
 (setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
 
