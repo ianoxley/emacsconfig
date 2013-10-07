@@ -11,7 +11,7 @@
  '(inhibit-startup-screen t)
  '(ns-command-modifier (quote meta))
  '(tab-width 4))
-(set-face-attribute 'default nil :font "Ubuntu Mono-12")
+(set-face-attribute 'default nil :font "Ubuntu Mono-16")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -145,13 +145,10 @@
 (add-hook 'org-capture-mode-hook #'visual-line-mode)
 
 ;; Evil mode
-(require 'evil)
-(evil-mode 1)
+(load "~/emacsconfig/ox/evil.el")
 
-;; 'jk' exits insert mode
-(require 'key-chord)
-(key-chord-mode 1)
-(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+;; JavaScript custom stuff
+(load "~/emacsconfig/ox/javascript.el")
 
 ;; auto-complete mode
 (require 'auto-complete)
