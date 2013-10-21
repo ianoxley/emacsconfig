@@ -150,6 +150,9 @@
 ;; JavaScript custom stuff
 (load "~/emacsconfig/ox/javascript.el")
 
+;; Ruby
+(load "~/emacsconfig/ox/ruby.el")
+
 ;; auto-complete mode
 (require 'auto-complete)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
