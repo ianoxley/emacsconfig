@@ -5,13 +5,13 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(completion-on-separator-character t)
- '(custom-enabled-themes (quote (wheatgrass)))
+ '(custom-enabled-themes (quote (misterioso)))
  '(global-linum-mode t)
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
  '(ns-command-modifier (quote meta))
  '(tab-width 4))
-(set-face-attribute 'default nil :font "Ubuntu Mono-16")
+(set-face-attribute 'default nil :font "Ubuntu Mono-12")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -60,6 +60,8 @@
 	  '(("t" "Todo" entry (file+headline "~/Dropbox/todo/todo.org" "Tasks")
 		 "* TODO %?\n %i\n %a")
 		("j" "Journal" entry (file+datetree "~/Dropbox/todo/journal.org")
+		 "* %?\nEntered on %U\n %i\n %a")
+		("b" "Bug Journal" entry (file+datetree "~/Dropbox/todo/bugs.org")
 		 "* %?\nEntered on %U\n %i\n %a")))
 
 ;; org mode recapture settings
