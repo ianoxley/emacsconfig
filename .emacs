@@ -62,6 +62,8 @@
 		("j" "Journal" entry (file+datetree "~/Dropbox/todo/journal.org")
 		 "* %?\nEntered on %U\n %i\n %a")
 		("b" "Bug Journal" entry (file+datetree "~/Dropbox/todo/bugs.org")
+		 "* %?\nEntered on %U\n %i\n %a")
+		("q" "Quotes" entry (file+datetree "~/Dropbox/todo/quotes.org")
 		 "* %?\nEntered on %U\n %i\n %a")))
 
 ;; org mode recapture settings
