@@ -7,13 +7,14 @@
   (shell-command (concat "node " (buffer-file-name))))
 
 (defun js2-toggle-indent ()
-  (interactive)
-  (if (= js2-indent-level 2)
-	(setq js2-indent-level 4)
-	(setq js2-indent-level 4)
-	(setq js2-basic-offset 4)
-  (setq js2-indent-level 2)
-  (setq js2-indent-level 2)
-  (setq js2-basic-offset 2))
+  "Toggles the indentation level of JavaScript files between 2 and 4 spaces.
   
-  (message (concat "js-indent-level set to " (number-to-string js2-indent-level))))
+  For each of js-indent-level, js2-indent-level, and js2-basic-offset:
+  if their value is 2 then its changed to 4; whereas if their value is
+  4 its changed to 2."
+  (interactive)
+  (setq js-indent-level (if (= js-indent-level 2) 4 2))
+  (setq js2-indent-level (if (= js-indent-level 2) 4 2))
+  (setq js2-basic-offset (if (= js-indent-level 2) 4 2))
+  (message "js-indent-level, js2-indent-level, and js2-basic-offset set to %d"
+		   js2-basic-offset))
