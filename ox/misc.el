@@ -1,13 +1,14 @@
 ;; misc.el
 
-(require 'json)
-(require 'request)
-
 (unless (package-installed-p 'request)
   (package-install 'request))
 
+(require 'json)
+(require 'request)
+
+
 (defun github-status ()
-  (request "http://localhost:8000/status.json";; "https://status.github.com/api/status.json"
+  (request "https://status.github.com/api/status.json"
 		   :parser 'json-read
 		   :success (function*
 					 (lambda (&key data &allow-other-keys)
