@@ -38,38 +38,6 @@
 (setq auto-save-file-name-transforms
 	  `((".*" ,temporary-file-directory t)))
 
-;; org mode
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(setq org-agenda-files (list "~/Dropbox/todo/todo.org"
-							 "~/Dropbox/todo/home.org"
-							 "~/Dropbox/todo/work.org"))
-(setq org-log-done 'time)
-(setq org-clock-persist 'history)
-(org-clock-persistence-insinuate)
-'(org-startup-truncated nil)
-
-(setq org-default-notes-file (concat org-directory "/notes.org"))
-(define-key global-map "\C-cc" 'org-capture)
-
-;; org mode capture templates
-(setq org-capture-templates
-	  '(("t" "Todo" entry (file+headline "~/Dropbox/todo/todo.org" "Tasks")
-		 "* TODO %?\n %i\n %a")
-		("j" "Journal" entry (file+datetree "~/Dropbox/todo/journal.org")
-		 "* %?\nEntered on %U\n %i\n %a")
-		("b" "Bug Journal" entry (file+datetree "~/Dropbox/todo/bugs.org")
-		 "* %?\nEntered on %U\n %i\n %a")
-		("q" "Quotes" entry (file+datetree "~/Dropbox/todo/quotes.org")
-		 "* %?\nEntered on %U\n %i\n %a")))
-
-;; org mode recapture settings
-(setq org-refile-targets (quote ((nil :maxlevel . 9)
-								 (org-agenda-files :maxlevel . 9))))
-
 ;; Steve yegge effective emacs suggestions
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
@@ -85,51 +53,19 @@
 		("marmalade" . "http://marmalade-repo.org/packages/")
 		("melpa" . "http://melpa.milkbox.net/packages/")))
 
-;; Custom functions to replicate Vim's C-o and C-O
-;; commands - from http://bastibe.de/my-emacs-customizations.html
-(defun vi-open-line-above ()
-  "Insert a newline above the current line and put point at beginning."
-  (interactive)
-  (unless (bolp)
-    (beginning-of-line))
-  (newline)
-  (forward-line -1)
-  (indent-according-to-mode))
-
-(defun vi-open-line-below ()
-  "Insert a newline below the current line and put point at beginning."
-  (interactive)
-  (unless (eolp)
-    (end-of-line))
-  (newline-and-indent))
-
-(global-set-key (kbd "C-o") 'vi-open-line-below)
-(global-set-key (kbd "M-o") 'vi-open-line-above)
-
 ;; Install missing packages
 (package-initialize)
 (mapc
  (lambda (package)
    (or (package-installed-p package)
-           (if (y-or-n-p (format "Package %s is missing. Install it? " package))
-                   (package-install package))))
- '(evil yasnippet key-chord js2-mode auto-complete markdown-mode expand-region coffee-mode))
+	   (package-install package)))
+ '(evil yasnippet key-chord js2-mode auto-complete markdown-mode expand-region coffee-mode request))
 
 ;; file types
 (add-to-list 'load-path
 			 "~/.emacs.d/elpa/yasnippet-20130831.2348")
 (require 'yasnippet)
 (yas-global-mode 1)
-
-(setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
-
-;; js2 mode
-(autoload 'js2-mode "js2-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
-(setq js-indent-level 2)
-(setq js2-indent-level 2)
-(setq js2-basic-offset 2)
 
 ;; ido mode
 (require 'ido)
@@ -145,16 +81,10 @@
 					(insert "~/")
 				  (call-interactively 'self-insert-command))))))
 
-;; org mode hooks
-(add-hook 'org-capture-mode-hook #'visual-line-mode)
-
-;; Evil mode
+;; package specific stuff
+(load "~/emacsconfig/ox/org.el")
 (load "~/emacsconfig/ox/evil.el")
-
-;; JavaScript custom stuff
 (load "~/emacsconfig/ox/javascript.el")
-
-;; Ruby
 (load "~/emacsconfig/ox/ruby.el")
 
 ;; auto-complete mode
