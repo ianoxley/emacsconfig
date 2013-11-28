@@ -19,3 +19,29 @@
 					 (message "Error: %S"
 							  error-thrown)))))
 
+(defun github-create-gist ()
+  (interactive)
+  (let* ((url-request-method "POST")
+		(gist-json )
+		(url-request-data
+		 (json-encode-alist
+		  '(("description" . "")
+			("public" . t)
+			("files" .
+			 (((concat (file-name-base (buffer-file-name))
+					   "."
+					   (file-name-extension (buffer-file-name))) .
+					   (("content" . (current-buffer))))))))))
+	(switch-to-buffer (url-retrieve "https://api.github.com/gists" 'princ))))
+
+  
+(concat (file-name-base (buffer-file-name))
+		"."
+	(file-name-extension (buffer-file-name)))
+
+
+(json-encode '(("one" . 1)
+			 ("two" . 2)
+			 ("three" .
+			  '(("three and a half" . "3.5")
+				("three and three quarters" . "3.75")))))
