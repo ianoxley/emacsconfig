@@ -1,13 +1,10 @@
 ;; misc.el
 
-(unless (package-installed-p 'request)
-  (package-install 'request))
-
 (require 'json)
 (require 'request)
 
-
 (defun github-status ()
+  (interactive)
   (request "https://status.github.com/api/status.json"
 		   :parser 'json-read
 		   :success (function*
@@ -21,3 +18,4 @@
 				   (lambda (&key error-thrown &allow-other-keys&rest _)
 					 (message "Error: %S"
 							  error-thrown)))))
+
