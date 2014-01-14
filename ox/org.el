@@ -13,6 +13,10 @@
 (org-clock-persistence-insinuate)
 '(org-startup-truncated nil)
 
+(setq org-todo-keywords
+	  '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" "CANCELLED(c)")))
+(setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("@mac" . ?m) ("@lunch" . ?l)))
+
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
 
