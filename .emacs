@@ -12,6 +12,9 @@
  '(ns-command-modifier (quote meta))
  '(tab-width 4))
 (set-face-attribute 'default nil :font "Ubuntu Mono-12")
+(electric-pair-mode 1)
+(show-paren-mode 1)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
