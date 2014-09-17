@@ -101,5 +101,5 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; mmm-mode
-(require 'mmm-mode)
+;; (require 'mmm-mode)
 
