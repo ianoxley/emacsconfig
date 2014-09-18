@@ -7,6 +7,7 @@
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
 (evil-leader/set-key "e" 'eval-last-sexp)
+(evil-leader/set-key "t" 'org-todo)
 
 (require 'evil)
 (evil-mode 1)
