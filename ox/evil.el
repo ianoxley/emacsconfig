@@ -1,5 +1,8 @@
 ;; evil mode customisations, etc.
 
+(require 'evil)
+(evil-mode 1)
+
 ;; Let <Esc> trigger Emacs C-G
 ;; esc quits
 (defun minibuffer-keyboard-quit ()
@@ -20,6 +23,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 (global-set-key [escape] 'evil-exit-emacs-state)
 
+;; relative line numbers
+(unless (package-installed-p 'relative-line-numbers-mode)
+  (package-install 'relative-line-numbers-mode))
+
 ;; evil leader mappings
 (unless (package-installed-p 'evil-leader)
   (package-install 'evil-leader))
@@ -28,9 +35,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (evil-leader/set-leader ",")
 (evil-leader/set-key "e" 'eval-last-sexp)
 (evil-leader/set-key "t" 'org-todo)
-
-(require 'evil)
-(evil-mode 1)
 
 (require 'key-chord)
 (key-chord-mode 1)
