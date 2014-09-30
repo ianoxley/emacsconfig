@@ -23,6 +23,9 @@
  )
 (add-to-list 'load-path "~/.emacs.d/")
 
+;; Global key mappings
+(define-key global-map (kbd "RET") 'newline-and-indent)
+
 ;; Add files and sub-directories in ~/.emacs.d/lisp/ to the load-path
 (let ((default-directory (concat user-emacs-directory
 								 (convert-standard-filename "lisp/"))))
