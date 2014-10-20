@@ -24,8 +24,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (global-set-key [escape] 'evil-exit-emacs-state)
 
 ;; relative line numbers
-(unless (package-installed-p 'relative-line-numbers-mode)
-  (package-install 'relative-line-numbers-mode))
+(unless (package-installed-p 'relative-line-numbers)
+  (package-install 'relative-line-numbers))
 
 ;; evil leader mappings
 (unless (package-installed-p 'evil-leader)
