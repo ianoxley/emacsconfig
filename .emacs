@@ -3,7 +3,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
+ '(ansi-color-names-vector
+   ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(completion-on-separator-character t)
  '(custom-enabled-themes (quote (misterioso)))
  '(global-linum-mode t)
@@ -11,17 +12,16 @@
  '(inhibit-startup-screen t)
  '(ns-command-modifier (quote meta))
  '(tab-width 4))
-(set-face-attribute 'default nil :font "Ubuntu Mono-12")
+(set-face-attribute 'default nil :font "Ubuntu Mono-16")
 (electric-pair-mode 1)
 (show-paren-mode 1)
-
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;; Global key mappings
 (define-key global-map (kbd "RET") 'newline-and-indent)
@@ -68,10 +68,10 @@
  '(evil yasnippet key-chord js2-mode auto-complete markdown-mode expand-region coffee-mode request))
 
 ;; file types
-(add-to-list 'load-path
-			 "~/.emacs.d/elpa/yasnippet-20130831.2348")
-(require 'yasnippet)
-(yas-global-mode 1)
+;; (add-to-list 'load-path
+;; 			 "~/.emacs.d/elpa/yasnippet-20130831.2348")
+;; (require 'yasnippet)
+;; (yas-global-mode 1)
 
 ;; ido mode
 (require 'ido)
@@ -92,6 +92,9 @@
 (load "~/emacsconfig/ox/evil.el")
 (load "~/emacsconfig/ox/javascript.el")
 (load "~/emacsconfig/ox/ruby.el")
+(load "~/emacsconfig/ox/elfeed.el")
+(when (file-exists-p "ox/local.el")
+  (load "ox/local.el"))
 
 ;; auto-complete mode
 (require 'auto-complete)
