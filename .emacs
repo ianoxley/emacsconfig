@@ -93,8 +93,8 @@
 (load "~/emacsconfig/ox/javascript.el")
 (load "~/emacsconfig/ox/ruby.el")
 (load "~/emacsconfig/ox/elfeed.el")
-(when (file-exists-p "ox/local.el")
-  (load "ox/local.el"))
+(when (file-exists-p "~/emacsconfig/ox/local.el")
+  (load "~/emacsconfig/ox/local.el"))
 
 ;; auto-complete mode
 (require 'auto-complete)
