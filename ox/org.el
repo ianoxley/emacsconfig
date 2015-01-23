@@ -5,9 +5,9 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
-(setq org-agenda-files (list "~/Dropbox/todo/todo.org"
-							 "~/Dropbox/todo/home.org"
-							 "~/Dropbox/todo/work.org"))
+(setq org-agenda-files (list "~/OneDrive/todo/todo.org"
+							 "~/OneDrive/todo/home.org"
+							 "~/OneDrive/todo/work.org"))
 (setq org-log-done 'time)
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
@@ -22,13 +22,13 @@
 
 ;; org mode capture templates
 (setq org-capture-templates
-	  '(("t" "Todo" entry (file+headline "~/Dropbox/todo/todo.org" "Tasks")
+	  '(("t" "Todo" entry (file+headline "~/OneDrive/todo/todo.org" "Tasks")
 		 "* TODO %?\n %i\n %a")
-		("j" "Journal" entry (file+datetree "~/Dropbox/todo/journal.org")
+		("j" "Journal" entry (file+datetree "~/OneDrive/todo/journal.org")
 		 "* %?\nEntered on %U\n %i\n %a")
-		("b" "Bug Journal" entry (file+datetree "~/Dropbox/todo/bugs.org")
+		("b" "Bug Journal" entry (file+datetree "~/OneDrive/todo/bugs.org")
 		 "* %?\nEntered on %U\n %i\n %a")
-		("q" "Quotes" entry (file+datetree "~/Dropbox/todo/quotes.org")
+		("q" "Quotes" entry (file+datetree "~/OneDrive/todo/quotes.org")
 		 "* %?\nEntered on %U\n %i\n %a")))
 
 ;; org mode recapture settings
@@ -37,3 +37,8 @@
 
 ;; org mode hooks
 (add-hook 'org-capture-mode-hook #'visual-line-mode)
+
+;; org-pomodoro
+(unless (package-installed-p 'org-pomodoro)
+  (package-install 'org-pomodoro))
+(global-set-key (kbd "C-c p") 'org-pomodoro)
