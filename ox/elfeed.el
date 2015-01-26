@@ -42,5 +42,6 @@
 	  ("http://feeds.haacked.com/haacked/" programming github .net)
 	  ("http://feeds.feedburner.com/holman" programming ruby github)
 	  ("http://www.howardism.org/index.xml" emacs programming)
-	  ("http://nullprogram.com/feed/" emacs programming)))
+	  ("http://nullprogram.com/feed/" emacs programming)
+	  ("http://endlessparentheses.com/atom.xml" emacs)))
 
