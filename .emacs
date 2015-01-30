@@ -21,7 +21,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(add-to-list 'load-path "~/.emacs.d/lisp")
+;;(add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;; Global key mappings
 (define-key global-map (kbd "RET") 'newline-and-indent)
@@ -93,6 +93,7 @@
 (load "~/emacsconfig/ox/javascript.el")
 (load "~/emacsconfig/ox/ruby.el")
 (load "~/emacsconfig/ox/elfeed.el")
+(load "~/emacsconfig/ox/sx.el")
 (when (file-exists-p "~/emacsconfig/ox/local.el")
   (load "~/emacsconfig/ox/local.el"))
 
@@ -108,4 +109,3 @@
 
 ;; mmm-mode
 ;; (require 'mmm-mode)
-
