@@ -65,7 +65,7 @@
  (lambda (package)
    (or (package-installed-p package)
 	   (package-install package)))
- '(evil yasnippet key-chord js2-mode auto-complete markdown-mode expand-region coffee-mode request))
+ '(evil yasnippet key-chord js2-mode auto-complete markdown-mode expand-region coffee-mode request magit))
 
 ;; file types
 ;; (add-to-list 'load-path
@@ -97,6 +97,12 @@
 (when (file-exists-p "~/emacsconfig/ox/local.el")
   (load "~/emacsconfig/ox/local.el"))
 
+(when (boundp 'evil-emacs-state-modes)
+  (add-to-list 'evil-emacs-state-modes 'sx-question-list-mode)
+  (add-to-list 'evil-emacs-state-modes 'sx-inbox-mode)
+  (add-to-list 'evil-emacs-state-modes 'elfeed)
+  (add-to-list 'evil-emacs-state-modes 'magit-status))
+
 ;; auto-complete mode
 (require 'auto-complete)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
@@ -109,3 +115,25 @@
 
 ;; mmm-mode
 ;; (require 'mmm-mode)
+
+(defun setup-windows ()
+  (interactive)
+  (delete-other-windows)
+
+  (find-file "~/Documents/org/work.org")
+
+  (split-window-vertically)
+  (other-window 1)
+  (org-agenda-list)
+
+  (split-window-horizontally)
+  (sx-tab-frontpage t nil)
+
+  (other-window 2)
+  (split-window-horizontally)
+  (elfeed)
+
+  (window-configuration-to-register ?w))
+
+(set-frame-parameter nil 'fullscreen 'fullboth)
+(setup-windows)
