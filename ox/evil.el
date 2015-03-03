@@ -39,3 +39,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (require 'key-chord)
 (key-chord-mode 1)
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+
+(unless (package-installed-p 'evil-surround)
+  (package-install 'evil-surround))
+(require 'evil-surround)
+(global-evil-surround-mode 1)
