@@ -19,3 +19,10 @@
 					 (message "Error: %S"
 							  error-thrown)))))
 
+(defun buffer-mode (&optional buffer-or-name)
+  "Returns the major mode associated with a buffer.
+If buffer-or-name is nil return current buffer's mode."
+  (buffer-local-value 'major-mode
+   (if buffer-or-name (get-buffer buffer-or-name) (current-buffer))))
+
+

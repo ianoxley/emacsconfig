@@ -94,6 +94,7 @@
 (load "~/emacsconfig/ox/ruby.el")
 (load "~/emacsconfig/ox/elfeed.el")
 (load "~/emacsconfig/ox/sx.el")
+(load "~/emacsconfig/ox/web-mode.el")
 (when (file-exists-p "~/emacsconfig/ox/local.el")
   (load "~/emacsconfig/ox/local.el"))
 
@@ -116,6 +117,13 @@
 ;; mmm-mode
 ;; (require 'mmm-mode)
 
+(load "~/emacsconfig/lisp/uuid.el")
+(require 'uuid)
+(defun uuid-insert()
+  (interactive)
+  (insert (upcase (uuid-string))))
+(global-set-key (kbd "C-c C-'") 'uuid-insert)
+
 (defun setup-windows ()
   (interactive)
   (delete-other-windows)
@@ -126,11 +134,11 @@
   (other-window 1)
   (org-agenda-list)
 
-  (split-window-horizontally)
+  (split-window-vertically)
   (sx-tab-frontpage t nil)
 
   (other-window 2)
-  (split-window-horizontally)
+  (split-window-vertically)
   (elfeed)
 
   (window-configuration-to-register ?w))
