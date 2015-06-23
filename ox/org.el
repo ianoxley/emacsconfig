@@ -28,7 +28,7 @@
 		 "* %?\nEntered on %U\n %i\n %a")
 		("b" "Bug Journal" entry (file+datetree "~/Documents/org/bugs.org")
 		 "* %?\nEntered on %U\n %i\n %a")
-		("q" "Quotes" entry (file+datetree "~/Documents/org/quotes.org")
+		("l" "Learning Journal" entry (file+datetree "~/Documents/org/learning.org")
 		 "* %?\nEntered on %U\n %i\n %a")))
 
 ;; org mode recapture settings
