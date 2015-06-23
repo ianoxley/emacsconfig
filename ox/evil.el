@@ -44,3 +44,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (package-install 'evil-surround))
 (require 'evil-surround)
 (global-evil-surround-mode 1)
+
+(unless (package-installed-p 'ace-jump-mode)
+  (package-install 'ace-jump-mode))
+(require 'ace-jump-mode)
+(evil-leader/set-key "c" 'ace-jump-mode)
