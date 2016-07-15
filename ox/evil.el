@@ -49,3 +49,5 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (package-install 'ace-jump-mode))
 (require 'ace-jump-mode)
 (evil-leader/set-key "c" 'ace-jump-mode)
+(evil-leader/set-key "r" 'ace-jump-char-mode)
+(evil-leader/set-key "l" 'ace-jump-line-mode)
