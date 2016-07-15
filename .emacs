@@ -130,15 +130,12 @@
 
   (find-file "~/Documents/org/work.org")
 
-  (split-window-vertically)
+  (split-window-horizontally)
+
+  ;; (split-window-vertically)
+  ;; (sx-tab-frontpage t nil)
+
   (other-window 1)
-  (org-agenda-list)
-
-  (split-window-vertically)
-  (sx-tab-frontpage t nil)
-
-  (other-window 2)
-  (split-window-vertically)
   (elfeed)
   (elfeed-update)
 
