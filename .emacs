@@ -140,6 +140,7 @@
   (other-window 2)
   (split-window-vertically)
   (elfeed)
+  (elfeed-update)
 
   (window-configuration-to-register ?w))
 
