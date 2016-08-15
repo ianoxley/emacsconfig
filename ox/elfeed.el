@@ -22,7 +22,6 @@
 	  ;; ("http://morethanseven.net/articles.atom" web programming)
 	  ("http://paulirish.com/feed/" web chrome javascript)
 	  ("http://feeds.feedburner.com/PersistentInfo" programming web)
-	  ("http://philsherry.com/feed/" web)
 	  ("http://pragprog.com/feed/global" programming books)
 	  ("http://samsaffron.com/posts.rss" web programming ruby)
 	  ("http://feeds.hanselman.com/ScottHanselman" web programming .net)
