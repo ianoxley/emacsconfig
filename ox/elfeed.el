@@ -17,7 +17,7 @@
 	  ("http://googletesting.blogspot.com/feeds/posts/default" google testing)
 	  ("http://www.stevesouders.com/blog/feed/" web performance)
 	  ("http://feeds.igvita.com/igvita" web performance)
-	  ("http://leahculver.com/feed/" python web)
+	  ("http://blog.leahculver.com/atom.xml" python web)
 	  ("http://martinfowler.com/bliki/bliki.atom" programming)
 	  ;; ("http://morethanseven.net/articles.atom" web programming)
 	  ("http://paulirish.com/feed/" web chrome javascript)
