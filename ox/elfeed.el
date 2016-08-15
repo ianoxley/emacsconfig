@@ -15,7 +15,6 @@
 	  ("http://feeds.feedburner.com/dcurtis?format=xml" design)
 	  ("http://emacsrocks.com/atom.xml" emacs)
 	  ("http://googletesting.blogspot.com/feeds/posts/default" google testing)
-	  ("http://guitarnoize.com/feed/" guitars)
 	  ("http://www.stevesouders.com/blog/feed/" web performance)
 	  ("http://feeds.igvita.com/igvita" web performance)
 	  ("http://leahculver.com/feed/" python web)
