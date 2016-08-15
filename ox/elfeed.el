@@ -9,7 +9,7 @@
 
 (setq elfeed-feeds
 	'(("http://shiflett.org/rss" security web)
-	  ("http://blog.markrendle.net/feed/" .net)
+	  ("https://blog.rendle.io/feed/" .net)
 	  ("http://coreygoldberg.blogspot.com/feeds/posts/default" python linux ubuntu)
 	  ("https://donmelton.com/feed/" apple)
 	  ("http://feeds.feedburner.com/dcurtis?format=xml" design)
