@@ -11,7 +11,7 @@
 	'(("http://shiflett.org/rss" security web)
 	  ("http://blog.markrendle.net/feed/" .net)
 	  ("http://coreygoldberg.blogspot.com/feeds/posts/default" python linux ubuntu)
-	  ("http://donmelton.com/rss.xml" apple)
+	  ("https://donmelton.com/feed/" apple)
 	  ("http://feeds.feedburner.com/dcurtis?format=xml" design)
 	  ("http://emacsrocks.com/atom.xml" emacs)
 	  ("http://googletesting.blogspot.com/feeds/posts/default" google testing)
