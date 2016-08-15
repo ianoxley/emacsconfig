@@ -34,5 +34,6 @@
 	  ("http://nullprogram.com/feed/" emacs programming)
 	  ("http://endlessparentheses.com/atom.xml" emacs)
 	  ("http://techblog.netflix.com/feeds/posts/default" programming netflix)
-	  ("http://planet.emacsen.org/atom.xml" emacs)))
+	  ("http://planet.emacsen.org/atom.xml" emacs)
+	  ("http://endlessparentheses.com/atom.xml" emacs)))
 
