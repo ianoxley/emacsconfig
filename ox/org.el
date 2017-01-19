@@ -7,6 +7,7 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-agenda-files (list "~/Documents/org/todo.org"
 							 "~/Documents/org/home.org"
+							 "~/Documents/org/notes.org"
 							 "~/Documents/org/work.org"))
 (setq org-log-done 'time)
 (setq org-clock-persist 'history)
@@ -14,10 +15,10 @@
 '(org-startup-truncated nil)
 
 (setq org-todo-keywords
-	  '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" "CANCELLED(c)")))
+	  '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELLED(c@)")))
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("@mac" . ?m) ("@lunch" . ?l)))
 
-(setq org-default-notes-file (concat org-directory "/notes.org"))
+(setq org-default-notes-file "~/Documents/org/notes.org")
 (define-key global-map "\C-cc" 'org-capture)
 
 ;; org mode capture templates
@@ -42,3 +43,7 @@
 (unless (package-installed-p 'org-pomodoro)
   (package-install 'org-pomodoro))
 (global-set-key (kbd "C-c p") 'org-pomodoro)
+
+(load "~/emacsconfig/lisp/org-expiry.el")
+(org-expiry-insinuate)
+(setq org-expiry-inactive-timestamps t)
