@@ -11,6 +11,9 @@
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
  '(ns-command-modifier (quote meta))
+ '(package-selected-packages
+   (quote
+	(twittering-mode web-mode sx elfeed yaml-mode rspec-mode inf-ruby ace-jump-mode evil-surround evil-leader relative-line-numbers yasnippet request org-pomodoro markdown-mode magit key-chord js2-mode expand-region evil coffee-mode auto-complete)))
  '(tab-width 4))
 (set-face-attribute 'default nil :font "Ubuntu Mono-16")
 (electric-pair-mode 1)
@@ -22,6 +25,10 @@
  ;; If there is more than one, they won't work right.
  )
 ;;(add-to-list 'load-path "~/.emacs.d/lisp")
+
+;; From homebrew install
+(let ((default-directory "/usr/local/share/emacs/site-lisp/"))
+    (normal-top-level-add-subdirs-to-load-path))
 
 ;; Global key mappings
 (define-key global-map (kbd "RET") 'newline-and-indent)
@@ -55,9 +62,9 @@
 
 ;; Add Marmalade package repository
 (setq package-archives
-	  '(("gnu" . "http://elpa.gnu.org/packages/")
-		("marmalade" . "http://marmalade-repo.org/packages/")
-		("melpa" . "http://melpa.milkbox.net/packages/")))
+	  '(("gnu" . "https://elpa.gnu.org/packages/")
+		("marmalade" . "https://marmalade-repo.org/packages/")
+		("melpa" . "https://melpa.org/packages/")))
 
 ;; Install missing packages
 (package-initialize)
@@ -118,22 +125,27 @@
 ;; (require 'mmm-mode)
 
 (load "~/emacsconfig/lisp/uuid.el")
-(require 'uuid)
 (defun uuid-insert()
   (interactive)
+  (require 'uuid)
   (insert (upcase (uuid-string))))
+
 (global-set-key (kbd "C-c C-'") 'uuid-insert)
+
+(global-set-key (kbd "C-c w") 'wc-goal-mode)
 
 (defun setup-windows ()
   (interactive)
   (delete-other-windows)
 
-  (find-file "~/Documents/org/work.org")
+  ;; (if (package-installed-p 'twittering-mode)
+  ;; 	  (twit)
+  ;; 	(find-file "~/Documents/org/home.org"))
 
   (split-window-horizontally)
 
-  ;; (split-window-vertically)
-  ;; (sx-tab-frontpage t nil)
+  (split-window-vertically)
+  (sx-tab-frontpage t nil)
 
   (other-window 1)
   (elfeed)
@@ -141,5 +153,6 @@
 
   (window-configuration-to-register ?w))
 
-(set-frame-parameter nil 'fullscreen 'fullboth)
-(setup-windows)
+;;(set-frame-parameter nil 'fullscreen 'fullboth)
+;;(setup-windows)
+
