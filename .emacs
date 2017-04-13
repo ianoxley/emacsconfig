@@ -33,12 +33,6 @@
 ;; Global key mappings
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
-;; Add files and sub-directories in ~/.emacs.d/lisp/ to the load-path
-(let ((default-directory (concat user-emacs-directory
-								 (convert-standard-filename "lisp/"))))
-  (normal-top-level-add-to-load-path '("."))
-  (normal-top-level-add-subdirs-to-load-path))
-
 ;; Markdown mode
 (autoload 'markdown-mode "markdown-mode.el"
   "Major mode for editing Markdown files" t)
