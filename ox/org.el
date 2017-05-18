@@ -5,7 +5,7 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
-(setq org-agenda-files (list "~/Documents/notes/inbox.org"
+(setq org-agenda-files (list "~/Documents/notes/todo.org"
 							 "~/Documents/notes/home.org"
 							 "~/Documents/notes/work.org"))
 (setq org-log-done 'time)
