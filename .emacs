@@ -13,9 +13,9 @@
  '(ns-command-modifier (quote meta))
  '(package-selected-packages
    (quote
-	(twittering-mode web-mode sx elfeed yaml-mode rspec-mode inf-ruby ace-jump-mode evil-surround evil-leader relative-line-numbers yasnippet request org-pomodoro markdown-mode magit key-chord js2-mode expand-region evil coffee-mode auto-complete)))
- '(tab-width 4))
-(set-face-attribute 'default nil :font "Ubuntu Mono-16")
+    (emmet-mode twittering-mode web-mode sx elfeed yaml-mode rspec-mode inf-ruby ace-jump-mode evil-surround evil-leader relative-line-numbers yasnippet request org-pomodoro markdown-mode magit key-chord js2-mode expand-region evil coffee-mode auto-complete)))
+ '(tab-width 2))
+(set-face-attribute 'default nil :font "Ubuntu Mono-18")
 (electric-pair-mode 1)
 (show-paren-mode 1)
 (custom-set-faces
@@ -25,6 +25,8 @@
  ;; If there is more than one, they won't work right.
  )
 ;;(add-to-list 'load-path "~/.emacs.d/lisp")
+(setq-default indent-tabs-mode nil)
+(setq web-mode-markup-indent-offset 2)
 
 ;; From homebrew install
 (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
@@ -66,7 +68,7 @@
  (lambda (package)
    (or (package-installed-p package)
 	   (package-install package)))
- '(evil yasnippet key-chord js2-mode auto-complete markdown-mode expand-region coffee-mode request magit))
+ '(evil yasnippet key-chord js2-mode auto-complete markdown-mode expand-region request magit))
 
 ;; file types
 ;; (add-to-list 'load-path
@@ -134,7 +136,7 @@
 
   ;; (if (package-installed-p 'twittering-mode)
   ;; 	  (twit)
-  ;; 	(find-file "~/Documents/org/home.org"))
+  (org-agenda-list)
 
   (split-window-horizontally)
 
@@ -147,6 +149,6 @@
 
   (window-configuration-to-register ?w))
 
-;;(set-frame-parameter nil 'fullscreen 'fullboth)
-;;(setup-windows)
+(set-frame-parameter nil 'fullscreen 'fullboth)
+(setup-windows)
 
