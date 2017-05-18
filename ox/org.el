@@ -5,9 +5,9 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
-(setq org-agenda-files (list "~/Dropbox/org/inbox.org"
-							 "~/Dropbox/org/home.org"
-							 "~/Dropbox/org/work.org"))
+(setq org-agenda-files (list "~/Documents/notes/inbox.org"
+							 "~/Documents/notes/home.org"
+							 "~/Documents/notes/work.org"))
 (setq org-log-done 'time)
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
@@ -17,16 +17,16 @@
 	  '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELLED(c@)")))
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("@diy" . ?d) ("@errands" . ?e)))
 
-(setq org-default-notes-file "~/Dropbox/org/notes.org")
+(setq org-default-notes-file "~/Documents/notes/notes.org")
 (define-key global-map "\C-cc" 'org-capture)
 
 ;; org mode capture templates
 (setq org-capture-templates
-	  '(("t" "Todo" entry (file+headline "~/Dropbox/org/inbox.org" "Inbox")
+	  '(("t" "Todo" entry (file+headline "~/Documents/notes/inbox.org" "Inbox")
 		 "* TODO %?\n %i\n %a")
-		("j" "Journal" entry (file+datetree "~/Dropbox/org/journal.org")
+		("j" "Journal" entry (file+datetree "~/Documents/notes/journal.org")
 		 "* %?\nEntered on %U\n %i\n %a")
-		("l" "Learning Journal" entry (file+datetree "~/Dropbox/org/learning.org")
+		("l" "Learning Journal" entry (file+datetree "~/Documents/notes/learning.org")
 		 "* %?\nEntered on %U\n %i\n %a")))
 
 ;; org mode recapture settings
