@@ -5,9 +5,17 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
-(setq org-agenda-files (list "~/Documents/notes/todo.org"
-							 "~/Documents/notes/home.org"
-							 "~/Documents/notes/work.org"))
+
+(setq org-directory "~/org")
+(setq org-agenda-files (list "~/org/todo.org"
+							 "~/org/home.org"
+							 "~/org/work.org"))
+(setq org-mobile-inbox-for-pull "~/org/flagged.org")
+(setq org-mobile-directory "~/Dropbox/apps/MobileOrg")
+
+(setq org-mobile-use-encryption t)
+;; password set in local.el
+
 (setq org-log-done 'time)
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
@@ -15,18 +23,18 @@
 
 (setq org-todo-keywords
 	  '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELLED(c@)")))
-(setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("@diy" . ?d) ("@errands" . ?e)))
+(setq org-tag-alist '(("work" . ?w) ("home" . ?h) ("diy" . ?d) ("errands" . ?e) ("next" . ?n)))
 
-(setq org-default-notes-file "~/Documents/notes/notes.org")
+(setq org-default-notes-file "~/org/notes.org")
 (define-key global-map "\C-cc" 'org-capture)
 
 ;; org mode capture templates
 (setq org-capture-templates
-	  '(("t" "Todo" entry (file+headline "~/Documents/notes/inbox.org" "Inbox")
+	  '(("t" "Todo" entry (file+headline "~/org/inbox.org" "Inbox")
 		 "* TODO %?\n %i\n %a")
-		("j" "Journal" entry (file+datetree "~/Documents/notes/journal.org")
+		("j" "Journal" entry (file+datetree "~/org/journal.org")
 		 "* %?\nEntered on %U\n %i\n %a")
-		("l" "Learning Journal" entry (file+datetree "~/Documents/notes/learning.org")
+		("l" "Learning Journal" entry (file+datetree "~/org/learning.org")
 		 "* %?\nEntered on %U\n %i\n %a")))
 
 ;; org mode recapture settings
