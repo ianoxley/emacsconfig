@@ -35,5 +35,6 @@
 	  ("http://endlessparentheses.com/atom.xml" emacs)
 	  ("http://techblog.netflix.com/feeds/posts/default" programming netflix)
 	  ("http://planet.emacsen.org/atom.xml" emacs)
-	  ("http://endlessparentheses.com/atom.xml" emacs)))
+	  ("http://endlessparentheses.com/atom.xml" emacs)
+    ("https://meowni.ca/atom.xml" web)))
 
