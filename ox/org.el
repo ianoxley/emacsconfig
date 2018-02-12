@@ -35,7 +35,8 @@
 		("j" "Journal" entry (file+datetree "~/org/journal.org")
 		 "* %?\nEntered on %U\n %i\n %a")
 		("l" "Learning Journal" entry (file+datetree "~/org/learning.org")
-		 "* %?\nEntered on %U\n %i\n %a")))
+		 "* %?\nEntered on %U\n %i\n %a")
+    ("s" "Senior Competencies" entry (file+datetree "~/org/senior.org"))))
 
 ;; org mode recapture settings
 (setq org-refile-targets (quote ((nil :maxlevel . 9)
