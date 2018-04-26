@@ -1,5 +1,4 @@
 ;; org.el
-
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
@@ -9,7 +8,8 @@
 (setq org-directory "~/org")
 (setq org-agenda-files (list "~/org/todo.org"
 							 "~/org/home.org"
-							 "~/org/work.org"))
+							 "~/org/work.org"
+               "~/org/notes.org"))
 (setq org-mobile-inbox-for-pull "~/org/flagged.org")
 (setq org-mobile-directory "~/Dropbox/apps/MobileOrg")
 

@@ -13,7 +13,7 @@
  '(ns-command-modifier (quote meta))
  '(package-selected-packages
    (quote
-    (emmet-mode twittering-mode web-mode sx elfeed yaml-mode rspec-mode inf-ruby ace-jump-mode evil-surround evil-leader relative-line-numbers yasnippet request org-pomodoro markdown-mode magit key-chord js2-mode expand-region evil coffee-mode auto-complete)))
+    (helm enh-ruby-mode org-pomodoro habitica use-package emmet-mode twittering-mode web-mode sx elfeed yaml-mode rspec-mode inf-ruby ace-jump-mode evil-surround evil-leader relative-line-numbers yasnippet request markdown-mode magit key-chord js2-mode expand-region evil coffee-mode auto-complete)))
  '(tab-width 2))
 (set-face-attribute 'default nil :font "Ubuntu Mono-18")
 (electric-pair-mode 1)
@@ -59,7 +59,7 @@
 ;; Add Marmalade package repository
 (setq package-archives
 	  '(("gnu" . "https://elpa.gnu.org/packages/")
-		("marmalade" . "https://marmalade-repo.org/packages/")
+		;;("marmalade" . "https://marmalade-repo.org/packages/")
 		("melpa" . "https://melpa.org/packages/")))
 
 ;; Install missing packages
@@ -109,9 +109,12 @@
 
 ;; auto-complete mode
 (require 'auto-complete)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20170124.1845/dict")
 (require 'auto-complete-config)
 (ac-config-default)
+(setq ac-ignore-case nil)
+(add-to-list 'ac-modes 'enh-ruby-mode)
+(add-to-list 'ac-modes 'web-mode)
 
 ;; expand region
 (require 'expand-region)
@@ -134,21 +137,22 @@
   (interactive)
   (delete-other-windows)
 
-  ;; (if (package-installed-p 'twittering-mode)
-  ;; 	  (twit)
-  (org-agenda-list)
-
-  (split-window-horizontally)
-
-  (split-window-vertically)
   (sx-tab-frontpage t nil)
-
+  (split-window-horizontally)
+  (other-window 1)
+  (split-window-vertically)
   (other-window 1)
   (elfeed)
   (elfeed-update)
+  ;; (split-window-vertically)
+  ;; (org-agenda-list)
+  ;; (if (package-installed-p 'twittering-mode)
+  ;; 	  (twit)
 
   (window-configuration-to-register ?w))
 
 (set-frame-parameter nil 'fullscreen 'fullboth)
-(setup-windows)
+;; (setup-windows)
+(find-file "~/org/work.org")
 
+(require 'helm-config)

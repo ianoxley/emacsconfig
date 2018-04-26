@@ -51,3 +51,16 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (evil-leader/set-key "c" 'ace-jump-mode)
 (evil-leader/set-key "r" 'ace-jump-char-mode)
 (evil-leader/set-key "l" 'ace-jump-line-mode)
+
+(add-to-list 'load-path "~/.emacs.d/plugins/evil-org")
+
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme)))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
