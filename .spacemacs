@@ -352,6 +352,8 @@ you should place your code here."
     )
   (when (file-exists-p "~/emacsconfig/ox/local.el")
     (load "~/emacsconfig/ox/local.el"))
+  ;; Allow inserting a # using Opt+3
+  (setq-default mac-option-modifier nil)
   (setq evil-escape-key-sequence "jk"))
 
 ;; Do not write anything past this comment. This is where Emacs will
