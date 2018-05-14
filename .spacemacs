@@ -44,6 +44,7 @@ values."
      ;; better-defaults
      emacs-lisp
      git
+     jekyll
      markdown
      org
      (shell :variables
