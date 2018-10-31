@@ -379,6 +379,8 @@ you should place your code here."
   (eval-after-load 'js2-mode
     '(add-hook 'js2-mode-hook #'add-node-modules-path))
   (setq evil-escape-key-sequence "jk")
+  (require 'linum-relative)
+  (linum-relative-on)
   (evil-set-initial-state 'term-mode 'emacs))
 
 ;; Do not write anything past this comment. This is where Emacs will
