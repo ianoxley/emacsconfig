@@ -146,10 +146,10 @@ values."
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
-   dotspacemacs-leader-key ","
+   dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
    ;; (default "SPC")
-   dotspacemacs-emacs-command-key ","
+   dotspacemacs-emacs-command-key "SPC"
    ;; The key used for Vim Ex commands (default ":")
    dotspacemacs-ex-command-key ":"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -157,8 +157,8 @@ values."
    dotspacemacs-emacs-leader-key "M-m"
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
-   ;; dotspacemacs-major-mode-leader-key ","
-   dotspacemacs-major-mode-leader-key nil
+   dotspacemacs-major-mode-leader-key ","
+   ;; dotspacemacs-major-mode-leader-key nil
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
    ;; (default "C-M-m")
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
@@ -335,16 +335,11 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (with-eval-after-load 'org
     ;; Org config
-    (setq org-directory "~/org")
-    (setq org-agenda-files (list "~/org/todo.org"
-                  "~/org/home.org"
-                  "~/org/work.org"
-                  "~/org/notes.org"))
-    (setq org-mobile-inbox-for-pull "~/org/flagged.org")
-    (setq org-mobile-directory "~/Dropbox/apps/MobileOrg")
-
-    (setq org-mobile-use-encryption t)
-    ;; password set in local.el
+    (setq org-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
+    (setq org-agenda-files (list "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/inbox.org"
+                                 "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/home.org"
+                                 "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/work.org"
+                                 "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/notes.org"))
 
     (setq org-log-done 'time)
     (setq org-clock-persist 'history)
@@ -355,18 +350,15 @@ you should place your code here."
         '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELLED(c@)")))
     (setq org-tag-alist '(("work" . ?w) ("home" . ?h) ("diy" . ?d) ("errands" . ?e) ("next" . ?n)))
 
-    (setq org-default-notes-file "~/org/notes.org")
+    (setq org-default-notes-file "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/notes.org")
     (define-key global-map "\C-cc" 'org-capture)
 
     ;; org mode capture templates
     (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/org/inbox.org" "Inbox")
+          '(("t" "Todo" entry (file+headline "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/inbox.org" "Inbox")
         "* TODO %?\n %i\n %a")
-        ("j" "Journal" entry (file+datetree "~/org/journal.org")
-        "* %?\nEntered on %U\n %i\n %a")
-        ("l" "Learning Journal" entry (file+datetree "~/org/learning.org")
-        "* %?\nEntered on %U\n %i\n %a")
-        ("s" "Senior Competencies" entry (file+datetree "~/org/senior.org"))))
+            ("j" "Journal" entry (file+datetree "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/journal.org")
+        "* %?\nEntered on %U\n %i\n %a")))
     )
   (when (file-exists-p "~/emacsconfig/ox/local.el")
     (load "~/emacsconfig/ox/local.el"))
