@@ -358,7 +358,7 @@ you should place your code here."
 
     ;; org mode capture templates
     (setq org-capture-templates
-          '(("t" "Todo" entry (file+headline "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/todo.org" "Todo")
+          '(("t" "Todo" entry (file+headline "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/todo.org" "Tasks")
         "* TODO %?\n %i\n %a")
             ("j" "Journal" entry (file+datetree "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/journal.org")
         "* %?\nEntered on %U\n %i\n %a")))
