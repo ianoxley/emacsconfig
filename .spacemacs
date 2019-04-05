@@ -273,7 +273,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers 'relative
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -380,8 +380,6 @@ you should place your code here."
     (eval-after-load 'js2-mode
       '(add-hook 'js2-mode-hook #'add-node-modules-path))
     (setq evil-escape-key-sequence "jk")
-    (require 'linum-relative)
-    (linum-relative-on)
     ;; (evil-set-initial-state 'term-mode 'emacs)
   )
 
