@@ -159,4 +159,7 @@
 (global-display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
 
-(require 'helm-config)
+(use-package helm
+  :config
+  (require 'helm-config)
+  (helm-mode 1))
