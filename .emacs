@@ -105,12 +105,6 @@
 (when (file-exists-p "~/emacsconfig/ox/local.el")
   (load "~/emacsconfig/ox/local.el"))
 
-(when (boundp 'evil-emacs-state-modes)
-  (add-to-list 'evil-emacs-state-modes 'sx-question-list-mode)
-  (add-to-list 'evil-emacs-state-modes 'sx-inbox-mode)
-  (add-to-list 'evil-emacs-state-modes 'elfeed)
-  (add-to-list 'evil-emacs-state-modes 'magit-status))
-
 ;; auto-complete mode
 (require 'auto-complete)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20170124.1845/dict")
