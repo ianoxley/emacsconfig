@@ -9,10 +9,7 @@
  '(custom-enabled-themes '(misterioso))
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
- '(ns-command-modifier (quote meta))
- '(package-selected-packages
-   (quote
-    (helm enh-ruby-mode org-pomodoro habitica use-package emmet-mode twittering-mode web-mode sx elfeed yaml-mode rspec-mode inf-ruby ace-jump-mode evil-surround evil-leader relative-line-numbers yasnippet request markdown-mode magit key-chord js2-mode expand-region evil coffee-mode auto-complete)))
+ '(ns-command-modifier 'meta)
  '(tab-width 2))
 (set-face-attribute 'default nil :font "Ubuntu Mono-18")
 (electric-pair-mode 1)
