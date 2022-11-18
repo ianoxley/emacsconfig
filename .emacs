@@ -159,6 +159,10 @@
 (global-display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
 
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode))
+
 (use-package helm
   :config
   (require 'helm-config)
