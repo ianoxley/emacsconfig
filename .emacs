@@ -52,12 +52,6 @@
 ;; Fix the hash key on os x
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
 
-;; Add Marmalade package repository
-(setq package-archives
-	  '(("gnu" . "https://elpa.gnu.org/packages/")
-		;;("marmalade" . "https://marmalade-repo.org/packages/")
-		("melpa" . "https://melpa.org/packages/")))
-
 ;; Install missing packages
 (package-initialize)
 (mapc
