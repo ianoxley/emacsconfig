@@ -161,6 +161,6 @@
 
 (set-frame-parameter nil 'fullscreen 'fullboth)
 ;; (setup-windows)
-(find-file "~/org/work.org")
+(org-agenda-list)
 
 (require 'helm-config)
