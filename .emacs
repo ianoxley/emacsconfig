@@ -6,8 +6,7 @@
  '(ansi-color-names-vector
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(completion-on-separator-character t)
- '(custom-enabled-themes (quote (misterioso)))
- '(global-linum-mode t)
+ '(custom-enabled-themes '(misterioso))
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
  '(ns-command-modifier (quote meta))
@@ -162,5 +161,7 @@
 (set-frame-parameter nil 'fullscreen 'fullboth)
 ;; (setup-windows)
 (org-agenda-list)
+(global-display-line-numbers-mode)
+(setq display-line-numbers-type 'relative)
 
 (require 'helm-config)
