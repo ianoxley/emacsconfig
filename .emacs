@@ -121,11 +121,9 @@
 (add-to-list 'ac-modes 'web-mode)
 
 ;; expand region
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-;; mmm-mode
-;; (require 'mmm-mode)
+(use-package expand-region
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region))
 
 (load "~/emacsconfig/lisp/uuid.el")
 (defun uuid-insert()
