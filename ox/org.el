@@ -1,51 +1,47 @@
 ;; org.el
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
+(use-package org
+  :config
+  (setq org-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
+  (setq org-agenda-files (list "~/Library/Mobile Documents/com~apple~CloudDocs/org/todo.org"
+                                  "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/home.org"
+                                  "~/Library/Mobile Documents/com~apple~CloudDocs/org/work.org"
+                                  "~/Library/Mobile Documents/com~apple~CloudDocs/org/notes.org"))
+  (setq org-archive-location "%s_archive::datetree/*")
 
-(setq org-directory "~/org")
-(setq org-agenda-files (list "~/org/todo.org"
-							 "~/org/home.org"
-							 "~/org/work.org"
-               "~/org/notes.org"))
-(setq org-mobile-inbox-for-pull "~/org/flagged.org")
-(setq org-mobile-directory "~/Dropbox/apps/MobileOrg")
+  (setq org-log-done 'time)
+  (setq org-clock-persist 'history)
+  (org-clock-persistence-insinuate)
+  '(org-startup-truncated nil)
 
-(setq org-mobile-use-encryption t)
-;; password set in local.el
+  (setq org-todo-keywords
+      '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELLED(c@)")))
+  (setq org-tag-alist '(("work" . ?w) ("home" . ?h) ("diy" . ?d) ("errands" . ?e)))
 
-(setq org-log-done 'time)
-(setq org-clock-persist 'history)
-(org-clock-persistence-insinuate)
-'(org-startup-truncated nil)
+  (setq org-default-notes-file "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/notes.org")
+  (define-key global-map "\C-cc" 'org-capture)
 
-(setq org-todo-keywords
-	  '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELLED(c@)")))
-(setq org-tag-alist '(("work" . ?w) ("home" . ?h) ("diy" . ?d) ("errands" . ?e) ("next" . ?n)))
+  ;; org mode capture templates
+  (setq org-capture-templates
+          '(("t" "Todo" entry (file+headline "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/todo.org" "Tasks")
+      "* TODO %?\n %i\n %a")
+          ("j" "Journal" entry (file+datetree "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/journal.org")
+      "* %?\nEntered on %U\n %i\n %a")))
 
-(setq org-default-notes-file "~/org/notes.org")
-(define-key global-map "\C-cc" 'org-capture)
-
-;; org mode capture templates
-(setq org-capture-templates
-	  '(("t" "Todo" entry (file+headline "~/org/inbox.org" "Inbox")
-		 "* TODO %?\n %i\n %a")
-		("j" "Journal" entry (file+datetree "~/org/journal.org")
-		 "* %?\nEntered on %U\n %i\n %a")
-		("l" "Learning Journal" entry (file+datetree "~/org/learning.org")
-		 "* %?\nEntered on %U\n %i\n %a")
-    ("s" "Senior Competencies" entry (file+datetree "~/org/senior.org"))))
-
-;; org mode recapture settings
-(setq org-refile-targets (quote ((nil :maxlevel . 9)
-								 (org-agenda-files :maxlevel . 9))))
-
-;; org mode hooks
-(add-hook 'org-capture-mode-hook #'visual-line-mode)
-
-;; org-pomodoro
-(unless (package-installed-p 'org-pomodoro)
-  (package-install 'org-pomodoro))
-(global-set-key (kbd "C-c p") 'org-pomodoro)
+  (setq org-global-properties
+        '(("Effort_ALL" .
+           "0:15 0:30 0:45 1:00 1:30 2:00 3:00 4:00 5:00 0:00")))
+  (setq org-columns-default-format "%40ITEM(Task) %17Effort(Estimated Effort){:} %CLOCKSUM")
+  
+  (global-set-key "\C-cl" 'org-store-link)
+  (global-set-key "\C-cc" 'org-capture)
+  (global-set-key "\C-ca" 'org-agenda)
+  (global-set-key "\C-cb" 'org-iswitchb)
+  
+  (custom-set-variables
+    '(org-agenda-show-all-dates t)
+    '(org-agenda-skip-deadline-if-done t)
+    '(org-agenda-skip-scheduled-if-done t)
+    '(org-deadline-warning-days 14)
+    '(org-reverse-note-order t)
+    ))
+;;(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))

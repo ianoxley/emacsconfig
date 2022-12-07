@@ -10,6 +10,13 @@
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
  '(ns-command-modifier 'meta)
+ '(org-agenda-show-all-dates t)
+ '(org-agenda-skip-deadline-if-done t)
+ '(org-agenda-skip-scheduled-if-done t)
+ '(org-deadline-warning-days 14)
+ '(org-reverse-note-order t)
+ '(package-selected-packages
+   '(magit rbenv ruby-electric helm-ag helm-projectile company projectile yaml-mode use-package undo-tree js2-mode inf-ruby helm expand-region evil))
  '(tab-width 2))
 (set-face-attribute 'default nil :font "Ubuntu Mono-18")
 (electric-pair-mode 1)
@@ -20,6 +27,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; Add melpa
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+
+(setq mac-option-modifier 'super)
+
 ;;(add-to-list 'load-path "~/.emacs.d/lisp")
 (setq-default indent-tabs-mode nil)
 (setq web-mode-markup-indent-offset 2)
@@ -54,31 +67,25 @@
 
 ;; Install missing packages
 (package-initialize)
-(mapc
- (lambda (package)
-   (or (package-installed-p package)
-	   (package-install package)))
- '(evil yasnippet key-chord js2-mode auto-complete markdown-mode expand-region request magit))
-
-;; file types
-;; (add-to-list 'load-path
-;; 			 "~/.emacs.d/elpa/yasnippet-20130831.2348")
-;; (require 'yasnippet)
-;; (yas-global-mode 1)
+;; (mapc
+;; (lambda (package)
+;;   (or (package-installed-p package)
+;;	   (package-install package)))
+;; '(evil yasnippet key-chord js2-mode auto-complete markdown-mode expand-region request magit))
 
 ;; ido mode
-(require 'ido)
-(ido-mode t)
-(add-hook 'ido-setup-hook
-		  (lambda()
-			;; Go straight home
-			(define-key ido-file-completion-map
-			  (kbd "~")
-			  (lambda()
-				(interactive)
-				(if (looking-back "/")
-					(insert "~/")
-				  (call-interactively 'self-insert-command))))))
+;; (require 'ido)
+;; (ido-mode t)
+;; (add-hook 'ido-setup-hook
+;; 		  (lambda()
+;; 			;; Go straight home
+;; 			(define-key ido-file-completion-map
+;; 			  (kbd "~")
+;; 			  (lambda()
+;; 				(interactive)
+;; 				(if (looking-back "/")
+;; 					(insert "~/")
+;; 				  (call-interactively 'self-insert-command))))))
 
 ;; package specific stuff
 (unless (package-installed-p 'use-package)
@@ -90,23 +97,14 @@
   (setq use-package-always-ensure t))
 
 (load "~/emacsconfig/ox/org.el")
-(load "~/emacsconfig/ox/evil.el")
+;; (load "~/emacsconfig/ox/evil.el")
 (load "~/emacsconfig/ox/javascript.el")
 (load "~/emacsconfig/ox/ruby.el")
-(load "~/emacsconfig/ox/elfeed.el")
-(load "~/emacsconfig/ox/sx.el")
-(load "~/emacsconfig/ox/web-mode.el")
+;; (load "~/emacsconfig/ox/elfeed.el")
+;; (load "~/emacsconfig/ox/sx.el")
+;; (load "~/emacsconfig/ox/web-mode.el")
 (when (file-exists-p "~/emacsconfig/ox/local.el")
   (load "~/emacsconfig/ox/local.el"))
-
-;; auto-complete mode
-(require 'auto-complete)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20170124.1845/dict")
-(require 'auto-complete-config)
-(ac-config-default)
-(setq ac-ignore-case nil)
-(add-to-list 'ac-modes 'enh-ruby-mode)
-(add-to-list 'ac-modes 'web-mode)
 
 ;; expand region
 (use-package expand-region
@@ -143,15 +141,38 @@
 
 (set-frame-parameter nil 'fullscreen 'fullboth)
 ;; (setup-windows)
+;; (find-file "~/Library/Mobile Documents/com~apple~CloudDocs/org/home.org")
 (org-agenda-list)
 (global-display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
 
 (use-package undo-tree
   :config
-  (global-undo-tree-mode))
+  (global-undo-tree-mode)
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/.cache"))))
 
 (use-package helm
   :config
   (require 'helm-config)
   (helm-mode 1))
+
+(use-package projectile
+  :config
+  (projectile-mode +1)
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (setq projectile-project-search-path '("~/dev" "~/play")))
+
+(use-package company
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
+
+(use-package helm-projectile)
+(use-package helm-ag)
+(use-package ruby-electric
+  :config
+  (add-hook 'ruby-hook-mode 'ruby-electric-mode))
+(use-package rbenv
+  :config
+  (global-rbenv-mode)
+  (rbenv-use-global))
